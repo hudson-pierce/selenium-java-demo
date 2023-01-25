@@ -1,7 +1,7 @@
-package hudson.pierce.SeleniumJavaDemo.tests;
+package tests;
 
-import hudson.pierce.SeleniumJavaDemo.constants.Constants;
-import hudson.pierce.SeleniumJavaDemo.pages.LoginPage;
+import constants.Constants;
+import pages.LoginPage;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

@@ -1,4 +1,4 @@
-package hudson.pierce.SeleniumJavaDemo.constants;
+package constants;
 
 public class Constants {
     // the base url

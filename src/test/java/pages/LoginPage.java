@@ -1,6 +1,6 @@
-package hudson.pierce.SeleniumJavaDemo.pages;
+package pages;
 
-import hudson.pierce.SeleniumJavaDemo.constants.Constants;
+import constants.Constants;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
