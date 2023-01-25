@@ -1,12 +1,9 @@
 package tests;
 
-import constants.Constants;
 import pages.LoginPage;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-
-import java.util.concurrent.TimeUnit;
+import utils.Drivers;
 
 public class LoginTest {
     WebDriver driver;
@@ -19,10 +16,7 @@ public class LoginTest {
 
     @BeforeEach
     public void setup() {
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get(Constants.URL);
-
+        driver = (new Drivers()).setup();
         loginPage = new LoginPage(driver);
     }
 
