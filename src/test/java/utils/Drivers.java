@@ -1,8 +1,8 @@
 package utils;
 
 import constants.Constants;
-import org.openqa.selenium.InvalidArgumentException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -13,7 +13,15 @@ import org.openqa.selenium.safari.SafariDriver;
 
 import java.util.concurrent.TimeUnit;
 
+/** @author Hudson Pierce
+ * Utility class for setting up WebDrivers
+ */
 public class Drivers {
+    /**
+     * Sets up the WebDriver instance based on the specified browser
+     * @return WebDriver the WebDriver instance
+     * @throws WebDriverException if an invalid browser is specified
+     */
     public WebDriver setup() {
         WebDriver driver;
 
@@ -37,7 +45,7 @@ public class Drivers {
             driver = new SafariDriver();
         }
         else {
-            throw new InvalidArgumentException("No valid browser was specified");
+            throw new WebDriverException("Invalid browser was specified.");
         }
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get(Constants.URL);

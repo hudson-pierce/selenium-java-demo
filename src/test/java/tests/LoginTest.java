@@ -5,6 +5,10 @@ import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import utils.Drivers;
 
+/**
+ * @author Hudson Pierce
+ * Test suite for the Login page
+ */
 public class LoginTest {
     WebDriver driver;
     private LoginPage loginPage;
@@ -14,12 +18,14 @@ public class LoginTest {
     private static String INVALID_USERNAME = "invalid_user";
     private static String INVALID_PASSWORD = "invalid_password";
 
+    /** Sets up driver and login page before each test. */
     @BeforeEach
     public void setup() {
         driver = (new Drivers()).setup();
         loginPage = new LoginPage(driver);
     }
 
+    /** Closes the driver after each test. */
     @AfterEach
     public void teardown() {
         driver.close();
@@ -32,7 +38,7 @@ public class LoginTest {
         loginPage.enterPassword(VALID_PASSWORD);
         loginPage.clickLogin();
 
-        loginPage.validUsernamePassword();
+        loginPage.checkLoginSuccess();
     }
 
     /** Verifies that inputting invalid username and invalid password displays an error message. */
@@ -42,7 +48,7 @@ public class LoginTest {
         loginPage.enterPassword(INVALID_PASSWORD);
         loginPage.clickLogin();
 
-        loginPage.invalidUsernamePassword();
+        loginPage.checkLoginFailedInvalidUsernamePassword();
     }
 
     /** Verifies that leaving username field empty displays an error message. */
@@ -50,7 +56,7 @@ public class LoginTest {
     public void loginUsernameEmpty() {
         loginPage.enterPassword(VALID_PASSWORD);
         loginPage.clickLogin();
-        loginPage.emptyUsername();
+        loginPage.checkLoginFailedEmptyUsername();
     }
 
     /** Verifies that leaving password field empty displays an error message. */
@@ -58,6 +64,6 @@ public class LoginTest {
     public void loginPasswordEmpty() {
         loginPage.enterUsername(VALID_USERNAME);
         loginPage.clickLogin();
-        loginPage.emptyPassword();
+        loginPage.checkLoginFailedEmptyPassword();
     }
 }
