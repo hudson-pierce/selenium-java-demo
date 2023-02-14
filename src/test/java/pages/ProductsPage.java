@@ -4,8 +4,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.NoSuchElementException;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 /**
  * Sets up Page Objects and actions for the Products Page.
@@ -49,8 +51,11 @@ public class ProductsPage {
     @FindBy(id = "remove-sauce-labs-bike-light")
     private WebElement bikeLightRemoveFromCart;
 
-    @FindBy(css = "#shopping_cart_container > a > span")
+    @FindBy(css = "#shopping_cart_container > a")
     private WebElement cartIcon;
+
+    @FindBy(css = "#shopping_cart_container > a > span")
+    private WebElement cartIconNumber;
 
     /** Constructor method for setting up ProductsPage with driver and web elements. */
     public ProductsPage(WebDriver driver) {
@@ -103,6 +108,11 @@ public class ProductsPage {
     * @param items The number of items added to the cart.
     */
     public void checkItemsAddedToCart(int items) {
-        assertEquals(String.valueOf(items), cartIcon.getText());
+        if (items > 0) {
+            assertEquals(String.valueOf(items), cartIconNumber.getText());
+        }
+        else {
+            assertThrows(NoSuchElementException.class, () -> cartIconNumber.getText());
+        }
     }
 }

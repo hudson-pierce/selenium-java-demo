@@ -26,13 +26,13 @@ public class CartPage {
     @FindBy(css = "#cart_contents_container > div > div.cart_list > div.cart_item > div.cart_item_label > div.item_pricebar > div")
     private WebElement backpackPrice;
 
-    @FindBy(css = "#cart_contents_container > div > div.cart_list > div:nth-child(4) > div.cart_item_label > div.inventory_item_desc")
+    @FindBy(css = "#cart_contents_container > div > div.cart_list > div:nth-child(4) > div.cart_item_label > div.item_pricebar > div")
     private WebElement bikeLightPrice;
 
     @FindBy(css = "#cart_contents_container > div > div.cart_list > div.cart_item > div.cart_item_label > div.inventory_item_desc")
     private WebElement backpackDescription;
 
-    @FindBy(css = "#cart_contents_container > div > div.cart_list > div:nth-child(4) > div.cart_item_label > div.item_pricebar > div")
+    @FindBy(css = "#cart_contents_container > div > div.cart_list > div:nth-child(4) > div.cart_item_label > div.inventory_item_desc")
     private WebElement bikeLightDescription;
 
     @FindBy(id = "remove-sauce-labs-backpack")
