@@ -8,4 +8,6 @@ public class Constants {
     public static String URL = "https://www.saucedemo.com";
     /** the browser to run tests on */
     public static String BROWSER = "chrome"; // other options "firefox", "edge", "safari"
+    /** whether or not to run the browser in headless mode */
+    public static boolean HEADLESS = true;
 }

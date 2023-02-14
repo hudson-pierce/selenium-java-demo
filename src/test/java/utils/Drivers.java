@@ -27,17 +27,23 @@ public class Drivers {
 
         if (Constants.BROWSER.equalsIgnoreCase("chrome")) {
             ChromeOptions options = new ChromeOptions();
-            options.addArguments("--headless");
+            if (Constants.HEADLESS) {
+                options.addArguments("--headless");
+            }
             driver = new ChromeDriver(options);
         }
         else if (Constants.BROWSER.equalsIgnoreCase("firefox")) {
             FirefoxOptions options = new FirefoxOptions();
-            options.addArguments("--headless");
+            if (Constants.HEADLESS) {
+                options.addArguments("--headless");
+            }
             driver = new FirefoxDriver(options);
         }
         else if (Constants.BROWSER.equalsIgnoreCase("edge")) {
             EdgeOptions options = new EdgeOptions();
-            options.addArguments("--headless");
+            if (Constants.HEADLESS) {
+                options.addArguments("--headless");
+            }
             driver = new EdgeDriver(options);
         }
         else if (Constants.BROWSER.equalsIgnoreCase("safari")) {
