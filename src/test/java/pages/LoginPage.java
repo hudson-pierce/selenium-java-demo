@@ -8,11 +8,14 @@ import org.openqa.selenium.support.PageFactory;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/** @author Hudson Pierce
+/** 
  * Sets up Page Objects and actions for the Login Page.
+ * @author Hudson Pierce
  */
 public class LoginPage {
     private WebDriver driver;
+
+    // Web Elements
     @FindBy(id = "user-name")
     private WebElement username;
 
@@ -34,6 +37,7 @@ public class LoginPage {
         PageFactory.initElements(driver, this);
     }
 
+    // Actions
     /** Enters username into username field. */
     public void enterUsername(String input) {
         username.sendKeys(input);
@@ -49,6 +53,15 @@ public class LoginPage {
         loginButton.click();
     }
 
+    // Helper Methods
+    /** Helper method for logging into the application. */
+    public void login(String username, String password) {
+        enterUsername(username);
+        enterPassword(password);
+        clickLogin();
+    }
+
+    // Assertions
     /** Checks that the login was successful. */
     public void checkLoginSuccess() {
         // checks if page url is redirected to inventory.html and products header is displayed,
