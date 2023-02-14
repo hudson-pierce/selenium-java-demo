@@ -12,16 +12,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @author Hudson Pierce
  */
 public class ProductsPage {
+    // Web elements
     @FindBy(css = "#header_container > div.header_secondary_container > span")
     private WebElement productsHeader;
 
     @FindBy(xpath = "//*[@id='header_container']/div[2]/div[2]/span/select")
     private WebElement sortDropdown;
 
-    @FindBy(xpath = "//*[@id='item_4_title_link']/div")
+    @FindBy(css = "#item_4_title_link > div")
     private WebElement backpackName;
 
-    @FindBy(xpath = "//*[@id='item_0_title_link']/div")
+    @FindBy(css = "#item_0_title_link > div")
     private WebElement bikeLightName;
 
     @FindBy(css = "#inventory_container > div > div:nth-child(1) > div.inventory_item_description > div.pricebar > div")
@@ -56,6 +57,7 @@ public class ProductsPage {
         PageFactory.initElements(driver, this);
     }
 
+    //Actions
     /** Add backpack to cart. */
     public void addBackpackToCart() {
         backpackAddToCart.click();
@@ -75,7 +77,12 @@ public class ProductsPage {
     public void removeBikeLightFromCart() {
         bikeLightRemoveFromCart.click();
     }
-    
+
+    /** Navigate to Cart Page */
+    public void goToCart() {
+        cartIcon.click();
+    }
+
     //Assertions
     /** Checks that backpack exists on the page. */
     public void checkBackpackOnPage() {
