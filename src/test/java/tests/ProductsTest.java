@@ -54,4 +54,39 @@ public class ProductsTest {
         productsPage.addBikeLightToCart();
         productsPage.checkItemsAddedToCart(2);
     }
+
+    /** Verifies that an item is removed from the cart. */
+    @Test
+    public void removeItemFromCart() {
+        // add backpack
+        productsPage.checkBackpackOnPage();
+        productsPage.addBackpackToCart();
+        productsPage.checkItemsAddedToCart(1);
+
+        // remove backpack
+        productsPage.removeBackpackFromCart();
+        productsPage.checkItemsAddedToCart(0);
+    }
+
+    /** Verifies that multiple items are removed from the cart. */
+    @Test
+    public void removeMultipleItemsFromCart() {
+        // add backpack
+        productsPage.checkBackpackOnPage();
+        productsPage.addBackpackToCart();
+        productsPage.checkItemsAddedToCart(1);
+
+        // add bike light
+        productsPage.checkBikeLightOnPage();
+        productsPage.addBikeLightToCart();
+        productsPage.checkItemsAddedToCart(2);
+
+        // remove backpack
+        productsPage.removeBackpackFromCart();
+        productsPage.checkItemsAddedToCart(1);
+
+        // remove bike light
+        productsPage.removeBikeLightFromCart();
+        productsPage.checkItemsAddedToCart(0);
+    }
 }

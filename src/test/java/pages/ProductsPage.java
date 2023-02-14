@@ -39,8 +39,14 @@ public class ProductsPage {
     @FindBy(id = "add-to-cart-sauce-labs-backpack")
     private WebElement backpackAddToCart;
 
+    @FindBy(id = "remove-sauce-labs-backpack")
+    private WebElement backpackRemoveFromCart;
+
     @FindBy(id = "add-to-cart-sauce-labs-bike-light")
     private WebElement bikeLightAddToCart;
+
+    @FindBy(id = "remove-sauce-labs-bike-light")
+    private WebElement bikeLightRemoveFromCart;
 
     @FindBy(css = "#shopping_cart_container > a > span")
     private WebElement cartIcon;
@@ -60,6 +66,16 @@ public class ProductsPage {
         bikeLightAddToCart.click();
     }
 
+    /** Remove backpack from cart. */
+    public void removeBackpackFromCart() {
+        backpackRemoveFromCart.click();
+    }
+
+    /** Remove bike light from cart. */
+    public void removeBikeLightFromCart() {
+        bikeLightRemoveFromCart.click();
+    }
+    
     //Assertions
     /** Checks that backpack exists on the page. */
     public void checkBackpackOnPage() {
