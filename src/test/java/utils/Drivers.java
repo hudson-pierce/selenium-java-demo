@@ -11,7 +11,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.safari.SafariDriver;
 
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
 
 /** @author Hudson Pierce
  * Utility class for setting up WebDrivers
@@ -53,7 +53,7 @@ public class Drivers {
         else {
             throw new WebDriverException("Invalid browser was specified.");
         }
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get(Constants.URL);
 
         return driver;
