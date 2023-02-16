@@ -13,8 +13,9 @@ import org.openqa.selenium.safari.SafariDriver;
 
 import java.time.Duration;
 
-/** @author Hudson Pierce
+/** 
  * Utility class for setting up WebDrivers
+ * @author Hudson Pierce
  */
 public class Drivers {
     /**
